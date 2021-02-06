@@ -1,13 +1,13 @@
-"""face-mask-recognition-dataset dataset."""
+"""face_mask_recognition_dataset dataset."""
 
 import tensorflow_datasets as tfds
-from . import face-mask-recognition-dataset
+from . import face_mask_recognition_dataset
 
 
-class Face-mask-recognition-datasetTest(tfds.testing.DatasetBuilderTestCase):
-  """Tests for face-mask-recognition-dataset dataset."""
-  # TODO(face-mask-recognition-dataset):
-  DATASET_CLASS = face-mask-recognition-dataset.Face-mask-recognition-dataset
+class FaceMaskRecognitionDatasetTest(tfds.testing.DatasetBuilderTestCase):
+  """Tests for face_mask_recognition_dataset face_mask_recognition_dataset."""
+  # TODO(face_mask_recognition_dataset):
+  DATASET_CLASS = face_mask_recognition_dataset.FaceMaskRecognitionDataset
   SPLITS = {
       'train': 3,  # Number of fake train example
       'test': 1,  # Number of fake test example
