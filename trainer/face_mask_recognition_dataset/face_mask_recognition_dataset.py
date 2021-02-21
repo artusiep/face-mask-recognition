@@ -19,7 +19,7 @@ _CITATION = """
 _TRAIN_URL = "https://storage.googleapis.com/face-mask-recognition-dataset/train.zip"
 _TEST_URL = "https://storage.googleapis.com/face-mask-recognition-dataset/test.zip"
 
-_IMAGE_SIZE = 200
+_IMAGE_SIZE = 256
 _IMAGE_SHAPE = (_IMAGE_SIZE, _IMAGE_SIZE, 3)
 
 _FEATURES = ['correct', 'incorrect', 'no_mask']
@@ -32,8 +32,9 @@ _NAME_RE = re.compile(
 class FaceMaskRecognitionDataset(tfds.core.GeneratorBasedBuilder):
     """DatasetBuilder for face_mask_recognition_dataset face_mask_recognition_dataset."""
 
-    VERSION = tfds.core.Version('1.0.2')
+    VERSION = tfds.core.Version('1.0.4')
     RELEASE_NOTES = {
+        '1.0.1': 'Test Version Bump to check checksum update.',
         '1.0.0': 'Initial release.',
     }
 
@@ -90,6 +91,6 @@ class FaceMaskRecognitionDataset(tfds.core.GeneratorBasedBuilder):
                 "image": file_object,
                 "label": label,
             }
-            if os.environ.get('VERBOSE').lower() == 'true':
+            if os.environ.get('VERBOSE') and os.environ.get('VERBOSE').lower() == 'true':
                 print(f"Example:e {record}")
             yield file_name, record
