@@ -114,10 +114,8 @@ def load_data(tensorflow_dataframe_name) -> Tuple[np.ndarray, np.ndarray, np.nda
     """
     # noinspection PyUnresolvedReferences
     from . import face_mask_recognition_dataset
-    dl_config = tensorflow_datasets.download.DownloadConfig(register_checksums=True)
 
-    train, eval = tensorflow_datasets.load(tensorflow_dataframe_name, split=['train', 'test'],
-                                           download_and_prepare_kwargs={'download_config': dl_config})
+    train, eval = tensorflow_datasets.load(tensorflow_dataframe_name, split=['train', 'test'])
     train_df, train_labels = get_df_images_and_labels(train)
     eval_df, eval_labels = get_df_images_and_labels(eval)
 

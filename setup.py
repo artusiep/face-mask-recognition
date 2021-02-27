@@ -2,7 +2,8 @@ from setuptools import find_packages
 from setuptools import setup
 
 REQUIRED_PACKAGES = [
-    'tensorflow==1.15.4',
+    'tensorflow==2.4.1',
+    'tensorflow-datasets==4.2.0',
     'scikit-learn>=0.20.2',
     'pandas==0.24.2',
 ]
@@ -13,6 +14,5 @@ setup(
     install_requires=REQUIRED_PACKAGES,
     packages=find_packages(include=['trainer', 'trainer.*', 'trainer.**']),
     include_package_data=True,
-    description='AI Platform | Training | scikit-learn | Base',
-    # data_files=[('trainer', ['face_mask_recognition_dataset/checksums.tsv'])]
+    description='AI Platform | Training | scikit-learn | Base'
 )

@@ -32,7 +32,7 @@ _NAME_RE = re.compile(
 class FaceMaskRecognitionDataset(tfds.core.GeneratorBasedBuilder):
     """DatasetBuilder for face_mask_recognition_dataset face_mask_recognition_dataset."""
 
-    VERSION = tfds.core.Version('1.0.4')
+    VERSION = tfds.core.Version('1.0.5')
     RELEASE_NOTES = {
         '1.0.1': 'Test Version Bump to check checksum update.',
         '1.0.0': 'Initial release.',

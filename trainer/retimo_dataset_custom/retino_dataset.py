@@ -101,10 +101,3 @@ class RetimoDataset:
             collector['label'] = numpy.append(collector.get('label', numpy.empty(0)), label_list)
 
         return config_record.name, collector
-
-
-dataset_name = 'face_mask_recognition'
-labels_map = {'correct': 0, 'incorrect': 1, 'no_mask': 2}
-config = [RetimoDatasetConfigRecord(dataset_name, 'train', 'gs://face-mask-recognition-dataset/train.zip', labels_map),
-          RetimoDatasetConfigRecord(dataset_name, 'test', 'gs://face-mask-recognition-dataset/test.zip', labels_map)]
-RetimoDataset(config).load()

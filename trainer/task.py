@@ -43,7 +43,7 @@ def get_args():
     parser.add_argument(
         '--num-epochs',
         type=int,
-        default=20,
+        default=10,
         help='number of times to go through the data, default=20')
     parser.add_argument(
         '--batch-size',
@@ -86,6 +86,7 @@ def train_and_evaluate(args):
     dimensions = util.get_number_of_labels(train_labels)
     num_train_examples = len(train_x)
     # Create the Keras Model
+    print(f"Number of dimensions: {dimensions}, Number of train examples {num_train_examples}")
     keras_model = model.create_basic_keras_model(dimensions)
 
     # # Pass a numpy array by passing DataFrame.values
@@ -110,8 +111,7 @@ def train_and_evaluate(args):
         verbose=True)
 
     # Setup TensorBoard callback.
-    custom_cb = CustomCallback(os.path.join(args.job_dir, 'metric_tb'),
-                               histogram_freq=1)
+    custom_cb = CustomCallback(os.path.join(args.job_dir, 'metric_tb'), histogram_freq=1)
 
     # Train model
     keras_model.fit(
